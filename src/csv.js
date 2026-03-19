@@ -146,3 +146,32 @@ export function exportAuditImagesCsv(rows) {
   console.log('\nExporting audit:images CSV...');
   return exportCsv(rows, AUDIT_IMAGES_COLUMNS, 'audit-images.csv');
 }
+
+// --- Audit Changes CSV Export ---
+
+const AUDIT_CHANGES_PRODUCT_COLUMNS = [
+  { key: 'productId',  header: 'Shopify Product ID' },
+  { key: 'title',      header: 'Title' },
+  { key: 'handle',     header: 'Handle' },
+  { key: 'status',     header: 'Current Status' },
+  { key: 'changeType', header: 'Change Type' },
+  { key: 'field',      header: 'Field' },
+  { key: 'from',       header: 'From' },
+  { key: 'to',         header: 'To' },
+];
+
+const AUDIT_CHANGES_VARIANT_COLUMNS = [
+  { key: 'sku',          header: 'SKU' },
+  { key: 'productId',    header: 'Shopify Product ID' },
+  { key: 'productTitle', header: 'Product Title' },
+  { key: 'changeType',   header: 'Change Type' },
+  { key: 'field',        header: 'Field' },
+  { key: 'from',         header: 'From' },
+  { key: 'to',           header: 'To' },
+];
+
+export function exportAuditChangesCsv(productChanges, variantChanges) {
+  console.log('\nExporting audit:changes CSVs...');
+  exportCsv(productChanges, AUDIT_CHANGES_PRODUCT_COLUMNS, 'audit-changes-products.csv');
+  exportCsv(variantChanges, AUDIT_CHANGES_VARIANT_COLUMNS, 'audit-changes-variants.csv');
+}
