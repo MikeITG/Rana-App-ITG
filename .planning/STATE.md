@@ -11,7 +11,7 @@ See: .planning/PROJECT.md (updated 2026-03-19)
 
 | Phase | Status | Plans | Progress |
 |-------|--------|-------|----------|
-| 1     | ○      | 0/0   | 0%       |
+| 1     | ◐      | 0/5   | 0%       |
 | 2     | ○      | 0/0   | 0%       |
 | 3     | ○      | 0/0   | 0%       |
 
@@ -21,5 +21,15 @@ See: .planning/PROJECT.md (updated 2026-03-19)
 
 **Blockers:** Need Shopify custom app created with read-only scopes (Mike creates in Shopify admin)
 
+### Plans
+
+| Plan | Title | Wave | Depends On | Requirements | Status |
+|------|-------|------|------------|--------------|--------|
+| 1 | Project Scaffold | 1 | — | SETUP-01, SETUP-02 | ○ |
+| 2 | GraphQL Client + Rate Limiting | 1 | — | SETUP-03, SETUP-04 | ○ |
+| 3 | Bulk Product Pull | 2 | 1, 2 | PULL-01, PULL-02, PULL-03, PULL-05 | ○ |
+| 4 | Inventory Pull | 2 | 1, 2 | PULL-04 | ○ |
+| 5 | Export & Snapshots | 3 | 3, 4 | PULL-06, PULL-07 | ○ |
+
 ---
-*Last updated: 2026-03-19 after initialization*
+*Last updated: 2026-03-19 after Phase 1 planning complete*
