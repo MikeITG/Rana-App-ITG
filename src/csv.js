@@ -73,3 +73,76 @@ export function exportAllCsv(data) {
   exportCsv(data.inventoryLevels, INVENTORY_COLUMNS, 'inventory.csv');
   console.log('CSV export complete.\n');
 }
+
+// --- Audit CSV Export ---
+
+const AUDIT_PRODUCTS_COLUMNS = [
+  { key: 'id', header: 'Shopify ID' },
+  { key: 'title', header: 'Title' },
+  { key: 'handle', header: 'Handle' },
+  { key: 'status', header: 'Status' },
+  { key: 'hasDescription', header: 'Has Description' },
+  { key: 'hasProductType', header: 'Has Product Type' },
+  { key: 'mediaCount', header: 'Image Count' },
+  { key: 'anyWeightSet', header: 'Weight Set' },
+  { key: 'anyBarcodeSet', header: 'Barcode Set' },
+  { key: 'anyCompareAtPrice', header: 'Compare At Price' },
+  { key: 'variantPolicySummary', header: 'Variant Policy' },
+  { key: 'totalInventory', header: 'Total Inventory' },
+  { key: 'outOfStockBehavior', header: 'OOS Behavior (Metafield)' },
+  { key: 'updatedAt', header: 'Last Updated' },
+];
+
+const AUDIT_POLICY_COLUMNS = [
+  { key: 'productId', header: 'Shopify Product ID' },
+  { key: 'title', header: 'Product Title' },
+  { key: 'handle', header: 'Handle' },
+  { key: 'status', header: 'Status' },
+  { key: 'sku', header: 'SKU' },
+  { key: 'variantId', header: 'Variant ID' },
+  { key: 'inventoryPolicy', header: 'Current Policy' },
+  { key: 'outOfStockBehavior', header: 'OOS Metafield Value' },
+  { key: 'mismatchType', header: 'Mismatch Type' },
+];
+
+const AUDIT_DISCONTINUED_COLUMNS = [
+  { key: 'productId', header: 'Shopify Product ID' },
+  { key: 'title', header: 'Product Title' },
+  { key: 'handle', header: 'Handle' },
+  { key: 'status', header: 'Status' },
+  { key: 'totalInventory', header: 'Total Inventory' },
+  { key: 'outOfStockBehavior', header: 'OOS Behavior (Metafield)' },
+  { key: 'issueType', header: 'Issue Type' },
+  { key: 'tags', header: 'Tags' },
+  { key: 'updatedAt', header: 'Last Updated' },
+];
+
+const AUDIT_IMAGES_COLUMNS = [
+  { key: 'productId', header: 'Shopify Product ID' },
+  { key: 'title', header: 'Product Title' },
+  { key: 'handle', header: 'Handle' },
+  { key: 'status', header: 'Status' },
+  { key: 'mediaCount', header: 'Image Count' },
+  { key: 'issueType', header: 'Issue Type' },
+  { key: 'updatedAt', header: 'Last Updated' },
+];
+
+export function exportAuditProductsCsv(rows) {
+  console.log('\nExporting audit:products CSV...');
+  return exportCsv(rows, AUDIT_PRODUCTS_COLUMNS, 'audit-products.csv');
+}
+
+export function exportAuditPolicyCsv(rows) {
+  console.log('\nExporting audit:policy mismatches CSV...');
+  return exportCsv(rows, AUDIT_POLICY_COLUMNS, 'audit-policy-mismatches.csv');
+}
+
+export function exportAuditDiscontinuedCsv(rows) {
+  console.log('\nExporting audit:discontinued CSV...');
+  return exportCsv(rows, AUDIT_DISCONTINUED_COLUMNS, 'audit-discontinued.csv');
+}
+
+export function exportAuditImagesCsv(rows) {
+  console.log('\nExporting audit:images CSV...');
+  return exportCsv(rows, AUDIT_IMAGES_COLUMNS, 'audit-images.csv');
+}
