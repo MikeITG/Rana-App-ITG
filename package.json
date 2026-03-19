@@ -1,0 +1,13 @@
+{
+  "name": "rana-shopify-monitor",
+  "version": "1.0.0",
+  "description": "Read-only Shopify PM monitoring tool for Rana Furniture",
+  "type": "module",
+  "scripts": {
+    "pull": "node src/index.js pull"
+  },
+  "dependencies": {
+    "csv-stringify": "^6.6.0",
+    "dotenv": "^16.0.0"
+  }
+}
